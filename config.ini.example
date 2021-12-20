@@ -1,0 +1,14 @@
+[emu]
+serial = /dev/ttyUSB0
+timeout_s = 30
+
+[general]
+; Recommended to >= 15
+interval_s = 20
+
+[mqtt]
+hostname = localhost
+port = 1883
+discovery_prefix = homeassistant
+client_id = flying-emu
+

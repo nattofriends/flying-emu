@@ -1,0 +1,4 @@
+flying_emu.egg-info/
+venv/
+config.ini
+flying-emu.service
