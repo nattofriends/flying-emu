@@ -123,11 +123,16 @@ def run(config):
         'value_template': "{{ value_json.reading }}",
     }
 
-    client.publish(
-        f'{mqtt_prefix}/availability',
-        payload='online',
-        retain=True,
-    )
+    def on_connect(client, *args):
+        client.publish(
+            f'{mqtt_prefix}/availability',
+            payload='online',
+            retain=True,
+        )
+
+    on_connect(client)
+    client.on_connect = on_connect
+
     client.publish(
         f'{mqtt_prefix}/current_summation/config',
         payload=json.dumps(current_summation_discovery_config),
